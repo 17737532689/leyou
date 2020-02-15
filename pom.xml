@@ -6,6 +6,8 @@
     <modules>
         <module>ly-registry</module>
         <module>ly-api-gateway</module>
+        <module>ly-item</module>
+        <module>ly-common</module>
     </modules>
 
     <parent>
@@ -75,6 +77,7 @@
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastDFS.client.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
