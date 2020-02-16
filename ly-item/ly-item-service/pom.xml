@@ -49,12 +49,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
-       <!-- <dependency>
+     <dependency>
             <groupId>com.leyou.common</groupId>
             <artifactId>ly-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>-->
+        </dependency>
 
 
         <dependency>
