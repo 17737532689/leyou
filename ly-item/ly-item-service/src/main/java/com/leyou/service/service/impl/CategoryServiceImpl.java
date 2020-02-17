@@ -20,7 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
         Example example = new Example(Category.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("parentId",pid);
-        if(pid<=0){
+        if(pid<0){
             throw new LyException(ExceptionEnum.GOODS_NOT_FOUND);
         }
         List<Category> categories = categoryMapper.selectByExample(example);

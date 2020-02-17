@@ -15,3 +15,6 @@ spring:
     url: jdbc:mysql://localhost:3306/heima?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 1234
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
