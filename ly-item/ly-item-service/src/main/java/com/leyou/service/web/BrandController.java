@@ -2,13 +2,12 @@ package com.leyou.service.web;
 
 import com.leyou.common.vo.PageResult;
 import com.leyou.item.pojo.Brand;
+import com.leyou.item.vo.BrandVo;
 import com.leyou.service.service.BrandService;
-import com.netflix.ribbon.proxy.annotation.Http;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,6 +63,56 @@ public class BrandController {
     public ResponseEntity<Void> deleteBrand(@PathVariable("bid") Long bid){
         brandService.deleteBrand(bid);
         return ResponseEntity.ok().build();
+    }
+
+    /**
+     * 更新品牌
+     * @param brandVo
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity<Void> updateBrand(BrandVo brandVo){
+        brandService.updateBrand(brandVo);
+        return ResponseEntity.ok().build();
+    }
+
+    /**
+     *根据分类id查询品牌
+     * @param cid
+     * @return
+     */
+    @GetMapping("cid/{cid}")
+    public ResponseEntity<List<Brand>> queryBrandByCid(@PathVariable("cid") Long cid) {
+
+        List<Brand> brands = brandService.queryBrandByCid(cid);
+
+        return ResponseEntity.ok(brands);
+
+    }
+
+    /**
+     * 根据品牌id查询品牌
+     * @param id
+     * @return
+     */
+    @GetMapping("{id}")
+    public ResponseEntity<Brand> queryBrandById(@PathVariable("id") Long id){
+        Brand brand = brandService.queryByBid(id);
+
+        return  ResponseEntity.ok(brand);
+    }
+
+    /**
+     * 根据ids查询品牌
+     * @param ids
+     * @return
+     */
+    @GetMapping("list")
+    public  ResponseEntity<List<Brand>> queryBrandByids(@RequestParam("ids") List<Long> ids){
+
+        List<Brand> brands = brandService.queryBrandByids(ids);
+
+        return ResponseEntity.ok(brands);
     }
 
 }
