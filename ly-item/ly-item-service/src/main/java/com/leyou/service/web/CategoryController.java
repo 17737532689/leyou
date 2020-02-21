@@ -4,11 +4,7 @@ import com.leyou.item.pojo.Category;
 import com.leyou.service.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +29,31 @@ public class CategoryController {
 
         return ResponseEntity.ok(categories);
 
+    }
+
+    /**
+     * 根据商品分类ids先查询
+     *
+     * @param ids
+     * @return
+     */
+    @GetMapping("list/ids")
+    public ResponseEntity<List<Category>> queryCategoryByIds(@RequestParam("ids") List<Long> ids) {
+
+        List<Category> categories = categoryService.queryCategoryByIds(ids);
+
+        return ResponseEntity.ok(categories);
+    }
+
+    /**
+     * 根据cid3查询三级分类
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("all/level")
+    public ResponseEntity<List<Category>> queryAllByCid3(@RequestParam("id") Long id) {
+        List<Category> categories = categoryService.queryAllByCid3(id);
+        return ResponseEntity.ok(categories);
     }
 }

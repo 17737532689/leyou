@@ -1,27 +1,25 @@
 package com.leyou.service.service.impl;
 
-import com.leyou.item.pojo.Category;
-import com.leyou.service.service.CategoryService;
-import lombok.extern.slf4j.Slf4j;
+import com.leyou.common.vo.PageResult;
+import com.leyou.item.pojo.Spu;
+import com.leyou.service.service.GoodsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
-public class CategoryServiceImplTest {
+public class GoodsServiceImplTest {
+
     @Autowired
-    private CategoryService categoryService;
+    private GoodsService goodsService;
     @Test
-    public void queryCategoryByPid() {
-        List<Category> categories = categoryService.queryCategoryByPid(1L);
-        log.info("信息：{}",categories);
+    public void querySpuByPage() {
+        PageResult<Spu> spuPageResult = goodsService.querySpuByPage(1, 2, "id", true, "华为", true);
+
     }
 }

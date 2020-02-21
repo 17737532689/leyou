@@ -17,6 +17,10 @@ zuul:
   retryable: true
   routes:
     item-service: /item/**
+    upload-service:
+      path: /upload/**
+      service: upload-service
+      strip-prefix: false
 ribbon:
   ConnectTimeout: 2250 # 连接超时时间(ms)
   ReadTimeout: 22000 # 通信超时时间(ms)
