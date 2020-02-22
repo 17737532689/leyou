@@ -120,6 +120,7 @@ public class BrandServiceImpl implements BrandService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("id",id);
         Brand brand = brandMapper.selectOneByExample(example);
+
         if(brand==null){
             throw  new LyException(ExceptionEnum.BRAND_CREATE_FAILED);
         }

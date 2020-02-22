@@ -19,7 +19,12 @@ public class GoodsServiceImplTest {
     private GoodsService goodsService;
     @Test
     public void querySpuByPage() {
-        PageResult<Spu> spuPageResult = goodsService.querySpuByPage(1, 2, "id", true, "华为", true);
+      //  PageResult<Spu> spuPageResult = goodsService.querySpuByPage(1, 2, "id", true, "华为", true);
+
+    }
+    @Test
+    public void add() {
+       // PageResult<Spu> spuPageResult = goodsService.querySpuByPage(1, 2, "id", true, "华为", true);
 
     }
 }
