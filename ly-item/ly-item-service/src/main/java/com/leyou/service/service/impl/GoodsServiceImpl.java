@@ -8,7 +8,6 @@ import com.leyou.common.vo.PageResult;
 import com.leyou.item.pojo.*;
 import com.leyou.service.mapper.*;
 import com.leyou.service.service.GoodsService;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
-import java.beans.Transient;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -322,7 +320,7 @@ public class GoodsServiceImpl implements GoodsService {
             //商品分类名
             spu.setCname(StringUtils.join(nameList,"/"));
             //品牌名
-            spu.setBname( brandMapper.selectByPrimaryKey(spu.getBrand_id()).getName());
+            spu.setBname( brandMapper.selectByPrimaryKey(spu.getBrandId()).getName());
         }
     }
 

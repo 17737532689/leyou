@@ -21,7 +21,7 @@ public class Spu {
     private Long  cid1;
     private Long  cid2;
     private Long  cid3;
-    private Long brand_id;
+    private Long brandId;
     private Boolean saleable;
     private Boolean valid;
     private Date createTime;
