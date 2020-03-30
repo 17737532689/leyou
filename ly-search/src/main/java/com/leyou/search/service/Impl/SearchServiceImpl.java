@@ -1,6 +1,5 @@
 package com.leyou.search.service.Impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;
@@ -133,11 +132,8 @@ public class SearchServiceImpl implements SearchService {
         //查询商品详情
         SpuDetail spuDetail = goodsClient.querySpuDetailById(spuId);
         //获取通用规格参数
-       String string = spuDetail.getGenericSpec();
-        JSONObject jsonObject = JSONObject.parseObject(string);
-        
-
         Map<Long, String> genericSpec = JsonUtils.toMap(spuDetail.getGenericSpec(), Long.class, String.class);
+
         //获取特有规格参数
         Map<String, List<String>> specialSpec = JsonUtils.nativeRead(spuDetail.getSpecialSpec(), new TypeReference<Map<String, List<String>>>() {
         });
